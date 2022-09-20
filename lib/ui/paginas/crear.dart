@@ -1,4 +1,5 @@
 import 'package:crud_empleado/domain/modelos/empleados.dart';
+import 'package:crud_empleado/ui/paginas/widget.dart';
 import 'package:flutter/material.dart';
 
 class CrearEmpleados extends StatefulWidget {
@@ -36,54 +37,9 @@ class _CrearEmpleadosState extends State<CrearEmpleados> {
       body: 
       Column(
         children: [
-          Padding(
-            padding: const EdgeInsets.all(15.0),
-            child: TextField(
-              controller: controlNombre,
-              decoration: InputDecoration(
-                filled: true,
-                labelText: 'NOMBRE',
-                suffix: GestureDetector(
-                  child: const Icon(Icons.close),
-                  onTap: () {
-                    controlNombre.clear();
-                  },
-                )
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(15.0),
-            child: TextField(
-              controller: controlApellido,
-              decoration: InputDecoration(
-                filled: true,
-                labelText: 'APELLIDO',
-                suffix: GestureDetector(
-                  child: const Icon(Icons.close),
-                  onTap: () {
-                    controlApellido.clear();
-                  },
-                )
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(15.0),
-            child: TextField(
-              controller: controlTelefono,
-              decoration: InputDecoration(
-                filled: true,
-                labelText: 'TELEFONO',
-                suffix: GestureDetector(
-                  child: const Icon(Icons.close),
-                  onTap: () {
-                    controlTelefono.clear();
-                  },
-                )
-              ),
-            ),
-          ),
+          Textos(gestionTextos: controlNombre, etiqueta: 'NOMBRES',),
+          Textos(gestionTextos: controlApellido, etiqueta: 'APELLIDOS',),
+          Textos(gestionTextos: controlTelefono, etiqueta: 'TELEFONO',),
           ElevatedButton(
             onPressed: () {
               _addEmpleado.add(
